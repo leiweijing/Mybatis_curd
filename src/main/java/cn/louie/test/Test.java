@@ -19,6 +19,9 @@ public class Test {
 //        userDao.updateUser(user);
 //        userDao.deleteById(3);
            userDao.selectAll();
+        /**
+         * 测试
+         */
 
     }
 }
