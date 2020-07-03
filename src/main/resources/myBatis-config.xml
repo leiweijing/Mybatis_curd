@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <!-- 环境配置 -->
+    <!--
+        environments 指 myBatis 可以配置多个环境，default指向默认的环境
+        每个SQLSessionFactory对应一个环境environment
+    -->
+    <properties resource="db.properties"/>
+    <typeAliases>
+<!--        <typeAlias type="cn.louie.entity.User" alias="user" />-->
+        <package name="cn.louie.entity"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <!--
+            JDBC :这个配置直接使用JDBC的提交和回滚功能。它依赖于数据源获得连接来管理事务的生命周期。
+            MANAGED：这个配置基本上什么都不做。它从不提交或者回滚一个连接的事务。而是让容器（例如：Spring或者J2EE应用服务器）
+                     来管理事务的生命周期
+                     -->
+            <transactionManager type="JDBC"/>
+            <!-- 数据库连接相关配置 ,这里动态获取config.properties文件中的内容-->
+            <!--数据源类型：
+                UNPOOLED：这个类型的数据源实现只是在每次需要的时候简单的打开连接和关闭连接
+            -->
+
+            <dataSource type="POOLED">
+
+                <property name="driver" value="${driver}" />
+                <property name="url" value="${url}" />
+                <property name="username" value="${username}" />
+                <property name="password" value="${password}" />
+            </dataSource>
+        </environment>
+    </environments>
+    <!-- mapping文件路径配置 -->
+    <mappers>
+        <mapper resource="mapper/UserMapper.xml"/>
+    </mappers>
+
+</configuration>

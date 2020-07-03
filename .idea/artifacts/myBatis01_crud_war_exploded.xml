@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="myBatis01_crud:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/myBatis01_crud_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="myBatis02_crud/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="myBatis02_crud" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>
